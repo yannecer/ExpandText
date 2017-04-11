@@ -17,14 +17,14 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
  * Created by necer on 2017/4/10.
  */
 
-public class ExpandTextView extends LinearLayout implements View.OnClickListener {
+public class ExpandTextView extends RelativeLayout implements View.OnClickListener {
 
     private TextView mTextView;
     private TextPaint mTextPaint;//textView的画笔
@@ -86,7 +86,6 @@ public class ExpandTextView extends LinearLayout implements View.OnClickListener
         mUpBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.up2down);
         mDownBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.down2up);
         bitmapWith = mUpBitmap.getWidth();
-
     }
 
 
@@ -110,13 +109,11 @@ public class ExpandTextView extends LinearLayout implements View.OnClickListener
         isFoldEnable = lineCount > mShowLineNum;
 
         if (isFoldEnable) {
-            isFold = true;//默认折叠
             int start = staticLayout.getLineStart(mShowLineNum - 1);
             int end = staticLayout.getLineEnd(mShowLineNum - 1);
             //获取最后一行的内容
             String endText = mText.substring(start, end);
             mFoldText = mText.substring(0, start) + endText.substring(0, endText.length() - 2) + "···";
-            mTextView.setText(mFoldText);
 
             int lineWidth = (int) staticLayout.getLineWidth(lineCount - 1);
             isEnough = getWidth() - lineWidth - getPaddingLeft() - getPaddingRight() > (bitmapWith + bitmapRightOffset);
@@ -125,7 +122,15 @@ public class ExpandTextView extends LinearLayout implements View.OnClickListener
             trueHeight = isEnough ? staticLayout.getHeight() : staticLayout.getHeight() + lineHeight;
             foldHeight = lineHeight * mShowLineNum;
 
-            bitmapTop = foldHeight - lineHeight / 2;//bitmap开始的位置,让箭头在一行的中间
+            if (isFold) {
+                bitmapTop = foldHeight - lineHeight / 2;//bitmap开始的位置,让箭头在一行的中间
+                mTextView.setText(mFoldText);
+
+            } else {
+                bitmapTop = trueHeight - lineHeight / 2;
+                mTextView.setText(mText);
+            }
+
         } else {
             mTextView.setText(mText);
         }
@@ -133,7 +138,7 @@ public class ExpandTextView extends LinearLayout implements View.OnClickListener
 
 
     @Override
-    protected void onDraw(Canvas canvas) {
+        protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (!isFoldEnable) {
             return;

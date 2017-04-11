@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="aaa"/>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -21,6 +28,7 @@
         necer:showLine="4"
         necer:textSize="20sp"
         necer:bitmapRightOffet="10dp"
+        necer:textColor="#00ff00"
         />
     <TextView
         android:layout_width="match_parent"
@@ -35,7 +43,5 @@
         android:layout_height="wrap_content"
         android:background="#ffffff"
         />
-
-
 
 </LinearLayout>

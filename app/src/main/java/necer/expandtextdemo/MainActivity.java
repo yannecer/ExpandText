@@ -2,6 +2,7 @@ package necer.expandtextdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import necer.expandtextview.ExpandTextView;
 
@@ -25,5 +26,11 @@ public class MainActivity extends AppCompatActivity {
         expand_text2.setText(text2);
     }
 
+
+    public void aaa(View view) {
+
+        expand_text2.setText(text2);
+
+    }
 
 }
