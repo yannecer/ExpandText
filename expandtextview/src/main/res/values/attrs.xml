@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="ExpandTextview">
+        <attr name="bitmapRightOffet" format="dimension"></attr>
+        <attr name="textColor" format="color"></attr>
+        <attr name="textSize" format="dimension"></attr>
+        <attr name="duration" format="integer"></attr>
+        <attr name="showLine" format="integer"></attr>
+    </declare-styleable>
+    
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:necer="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="最后一行字符未占满一行"/>
+
+
+    <necer.expandtextview.ExpandTextView
+        android:id="@+id/expand_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        necer:duration="200"
+        necer:showLine="4"
+        necer:textSize="20sp"
+        necer:bitmapRightOffet="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="最后一行字符刚好占满一行"/>
+
+    <necer.expandtextview.ExpandTextView
+        android:id="@+id/expand_text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        />
+
+
+
+</LinearLayout>
