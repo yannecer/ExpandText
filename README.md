@@ -25,7 +25,10 @@
         necer:textSize="20sp"
         necer:bitmapRightOffet="10dp"
         />
-</LinearLayout>
+</LinearLayout>  
+
+需要添加背景android:background=""，不然ViewGroup的onDraw()不会执行，就不会绘制箭头
+
 ```
 ### 自定义属性
    
